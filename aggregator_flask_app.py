@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, make_response
-from datahandler import DataHandler
+from core.datahandler import DataHandler
 from functools import wraps
 
 app = Flask(__name__)

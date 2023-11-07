@@ -20,7 +20,7 @@
 
     python aggregator_flask_app.py
 
-Flask need authentication (see [test_curl_with_full_data.sh](test_curl_with_full_data.sh) )
+Flask need authentication (see [test_curl_with_full_data.sh](tests/test_curl_with_full_data.sh) )
 
 Or in the source :)
 
@@ -36,9 +36,9 @@ Alternatively grabs results from filesystem under requests ip address (substitut
 During the development I have applied TDD in order to ensure and fast test of desired outputs.
 In the [test](tests/test_datatransformations.py) are classes three classes.
 Two of those are to test classes described bellow and third as integration test that is bound
-to [input_data.json](input_data.json)
+to [input_data.json](data/input_data.json)
 
-In file [datahandler](datahandler.py) I have created two classes:
+In file [datahandler](core/datahandler.py) I have created two classes:
 
     OriginData
     DataHandler
@@ -75,7 +75,7 @@ json.
 There is a CLI version of the application that handles file input from stdin and keys for transformation. As there is no
 exact specification for number of aggregation keys I have decided that there should be at least two.
 Another working solution is web application written in Flask with only single POST endpoint /api/v1/parse-me/ .
-Try/see [test_curl_with_full_data.sh](test_curl_with_full_data.sh). This application is also dockerizable
+Try/see [test_curl_with_full_data.sh](tests/test_curl_with_full_data.sh). This application is also dockerizable
 
 Another approach to handle the data transformation was with using pandas library, where instead of classes will be one
 transformation function to achieve same result and would be faster in implementation than painfully transform the nested

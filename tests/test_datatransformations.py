@@ -2,7 +2,7 @@ import json
 import unittest
 from unittest.mock import patch, mock_open
 
-from datahandler import OriginData, DataHandler
+from core.datahandler import OriginData, DataHandler
 
 
 class TestOriginData(unittest.TestCase):
@@ -72,7 +72,7 @@ class TestDataHandler(unittest.TestCase):
 class TestFullDataImplementation(unittest.TestCase):
 
     def setUp(self):
-        self.sample_data_path = "../input_data.json" # forgive me for input data dependency in tests
+        self.sample_data_path = "../data/input_data.json"  # forgive me for input data dependency in tests
         self.handler = DataHandler()
 
     def test_aggregate_by_keys_currency_country_city(self):

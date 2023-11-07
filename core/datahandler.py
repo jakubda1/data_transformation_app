@@ -31,11 +31,10 @@ class OriginData:
                 # Exclude the keys used for nesting
                 return [{k: v for k, v in self.__dict__.items() if k not in keys}]
 
-            current_key = key_sequence[0]
-            next_keys = key_sequence[1:]
+            current_key, *next_keys = key_sequence
 
             if current_key not in remaining_data:
-                return {}
+                return remaining_data
 
             # Recursive nesting
             return {
@@ -99,15 +98,11 @@ class DataHandler:
             else:
                 return a if b is None else b
 
-        transformed_data = []
-        for d in self.data:
-            transformed_data.append(d.transform_by_keys(*keys))
-
         result = {}
-        for item in transformed_data:
+        for d in self.data:
+            item = d.transform_by_keys(*keys)
             for key, value in item.items():
                 result[key] = merge(result.get(key), value)
-        print(result)
         return result
 
     def __getitem__(self, item):

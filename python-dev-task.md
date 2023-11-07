@@ -5,7 +5,7 @@
 Napiste CLI aplikaci (skript/program) jehoz vstup je JSON pole plochych slovniku (flat dicts). 
 Program vstup zanalyzuje a na vystupu vytvori slovnik vnorenych slovnku s klici urcenymi pres argumenty prikazove radky, hodnoty listu (zbyle prvky) budou ve formatu pole plochych slovniku, spadajici pod vhodnou skupinu. 
 
-Struktura vstupniho JSON viz [input_data.json](input_data.json)
+Struktura vstupniho JSON viz [input_data.json](data/input_data.json)
 
 Priklady volani a vystupu:
 > cat input_data.json | python my_script.py currency country city
